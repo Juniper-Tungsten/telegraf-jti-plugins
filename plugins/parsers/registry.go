@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/influxdata/telegraf"
-
+        "github.com/influxdata/telegraf/plugins/parsers/juniperUDP"
 	"github.com/influxdata/telegraf/plugins/parsers/collectd"
 	"github.com/influxdata/telegraf/plugins/parsers/csv"
 	"github.com/influxdata/telegraf/plugins/parsers/dropwizard"
@@ -167,6 +167,8 @@ func NewParser(config *Config) (Parser, error) {
 	case "collectd":
 		parser, err = NewCollectdParser(config.CollectdAuthFile,
 			config.CollectdSecurityLevel, config.CollectdTypesDB, config.CollectdSplit)
+        case "juniperUDP":
+                parser, err = NewJuniperUDPParser()
 	case "dropwizard":
 		parser, err = NewDropwizardParser(
 			config.DropwizardMetricRegistryPath,
@@ -393,4 +395,8 @@ func NewLogFmtParser(metricName string, defaultTags map[string]string) (Parser, 
 
 func NewWavefrontParser(defaultTags map[string]string) (Parser, error) {
 	return wavefront.NewWavefrontParser(defaultTags), nil
+}
+
+func NewJuniperUDPParser()(Parser, error){
+        return &juniperUDP.JuniperUDPParser{}, nil
 }
