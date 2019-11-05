@@ -1,3 +1,6 @@
+# This repository is only for JTI UDP protobuf. JTI OC is already merged to Telegraf main repo
+# This code needs update w.r.t latest Junos releases
+
 # Telegraf [![Circle CI](https://circleci.com/gh/influxdata/telegraf.svg?style=svg)](https://circleci.com/gh/influxdata/telegraf) [![Docker pulls](https://img.shields.io/docker/pulls/library/telegraf.svg)](https://hub.docker.com/_/telegraf/)
 
 Telegraf is an agent for collecting, processing, aggregating, and writing metrics.
